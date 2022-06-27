@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart' hide Trans;
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:sphere/data/repository/local/local_repository.dart';
 import 'package:sphere/domain/core/value_objects.dart';
 import 'package:sphere/ui/shared/all_shared.dart';
 import 'package:vfx_flutter_common/vfx_flutter_common.dart';
@@ -15,12 +14,8 @@ extension LanguageAppEx on LanguageApp {
 }
 
 class LanguageScreenService extends GetxService {
-  LanguageScreenService({LocalRepository? repo})
-      : repoLocal = repo ?? GetIt.I.get() {
-    debugPrint('$now: LanguageScreenService.LanguageScreenService');
-  }
+  LanguageScreenService();
 
-  final LocalRepository repoLocal;
 
   final _language = LanguageApp.ru.obs;
   LanguageApp get language$ => _language();
@@ -38,20 +33,20 @@ class LanguageScreenService extends GetxService {
   Future changeLanguage(String language, BuildContext context) async {
     _language(_lang(language));
     EasyLocalization.of(context)?.setLocale(Locale(language));
-    await repoLocal.writeLanguage(NonEmptyString(language));
+    //await repoLocal.writeLanguage(NonEmptyString(language));
   }
 
   Future startLang(Locale? locale, BuildContext context) async {
     _language(_lang(locale?.languageCode ?? ''));
     EasyLocalization.of(context)?.setLocale(context.locale);
-    await repoLocal.writeLanguage(NonEmptyString(locale?.languageCode ?? ''));
+    //await repoLocal.writeLanguage(NonEmptyString(locale?.languageCode ?? ''));
   }
 
   @override
   void onReady() async {
     super.onReady();
-    _language(_lang((await repoLocal.readLanguage())
-        .fold((l) => l, (r) => r.value.getOrElse(() => ''))));
+    /*_language(_lang((await repoLocal.readLanguage())
+        .fold((l) => l, (r) => r.value.getOrElse(() => ''))));*/
   }
 }
 

@@ -13,7 +13,6 @@ import 'package:sphere/domain/core/extended_errors.dart';
 import 'package:sphere/ui/shared/all_shared.dart';
 import 'package:vfx_flutter_common/utils.dart';
 
-import '../../../../../logic/auth/auth_service.dart';
 
 abstract class IDioProvider {
   Dio get dio;
@@ -130,7 +129,6 @@ class DioBuilder implements IDioProvider {
             color: AppColors.red);
       });
 
-      Get.find<AuthService>().logout(/*true*/);
       return;
     }
 
@@ -159,7 +157,6 @@ class DioBuilder implements IDioProvider {
         delayMilli(AppConsts.delayForEscapeVisualConflict).then((_) {
           appAlert(value: 'Ошибка сервера [$statusCode]', color: AppColors.red);
         });
-        Get.find<AuthService>().logout(/*true*/);
       }
 
       if ([500].contains(statusCode)) {

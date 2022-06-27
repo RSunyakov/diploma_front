@@ -5,8 +5,6 @@ import 'package:injectable/injectable.dart';
 import 'package:sphere/core/safe_coding/src/either.dart';
 import 'package:sphere/data/dto/test/test.dart';
 import 'package:sphere/domain/core/extended_errors.dart';
-import 'package:sphere/domain/test/test.dart';
-import 'package:sphere/domain/user/user.dart';
 import 'package:sphere/domain/users/user_domain.dart';
 import 'package:sphere/logic/repository/repository.dart';
 
