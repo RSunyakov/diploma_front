@@ -1,0 +1,22 @@
+{
+  "general": {
+    "follows": "Follows",
+    "followers": "Followers",
+    "achievements": "Achievements",
+    "reports": "Reports",
+    "all_users": "All users",
+    "subscribers_only": "Subscribers only",
+    "my_mentors": "My mentors",
+    "none": "None",
+    "logo_text": "SpHERE"
+  },
+  "profile": {},
+  "settings": {},
+  "sign_in": {},
+  "first_entry": {},
+  "global_search": {},
+  "goals": {},
+  "home": {},
+  "lenta": {},
+  "mentors": {}
+}
